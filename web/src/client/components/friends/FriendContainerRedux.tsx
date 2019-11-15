@@ -1,5 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
+import { AddFriendRedux } from "./AddFriendRedux";
+import { FriendsRedux } from "./FriendsRedux";
 
 export const FriendContainerWrapper = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -16,9 +18,9 @@ export const FriendContainerRedux = () => {
     return (
         <FriendContainerWrapper>
             <div>
-                "Hello there"
-                {/*<AddFriendRedux />*/}
-                {/*<FriendsRedux />*/}
+                <p>"Add friends form:"</p>
+                <AddFriendRedux />
+                <FriendsRedux />
             </div>
         </FriendContainerWrapper>
     )

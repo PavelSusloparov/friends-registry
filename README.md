@@ -1,7 +1,7 @@
 # React-redux-saga-graphql-mongo
 
-Server [Readme](server/README.md)
-Web [Readme](web/README.md)
+* Server [Readme](server/README.md)
+* Web [Readme](web/README.md)
 
 ## Run applications
 
