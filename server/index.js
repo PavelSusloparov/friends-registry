@@ -1,5 +1,5 @@
-import {typeDefs} from "./data/schema";
-import {resolvers} from './data/resolvers';
+import {typeDefs} from "./schema";
+import {resolvers} from './resolvers';
 
 const http = require('http');
 const {ApolloServer} = require('apollo-server-express');

@@ -1,6 +1,6 @@
-import {Friends} from './dbConnectors';
-import {PubSub} from 'graphql-subscriptions';
-import {reject} from "lodash";
+import { Friends } from './dbConnectors';
+import { PubSub } from 'graphql-subscriptions';
+import { reject } from "lodash";
 
 const pubsub = new PubSub();
 const FRIEND_UPDATED = 'FRIEND_UPDATED';
