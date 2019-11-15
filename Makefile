@@ -7,8 +7,9 @@ mongo.pid:
 	{ docker-compose up -d & echo $$! > $@; }
 
 .PHONY: stopMongo
-stopMongo: mongo.pid
-	-kill `cat $<` && rm $<
+stopMongo:
+	-docker-compose down
+	-rm mongo.pid
 
 .PHONY: startServer
 startServer: server.pid
@@ -31,7 +32,7 @@ serverLogs:
 startWeb: web.pid
 
 web.pid:
-	{ cd web & yarn start > web.log 2> web.err & & echo $$! > $@; }
+	{ cd web && yarn start > web.log 2> web.err & echo $$! > $@; }
 
 .PHONY: stopWeb
 stopWeb: web.pid
@@ -46,7 +47,7 @@ webLogs:
 
 .PHONY: logs
 logs:
-	tail -F server.log server.err web.log web.err
+	tail -F server/server.log server/server.err web/web.log web/web.err
 
 .PHONY: startup
 startup: startMongo startServer startWeb

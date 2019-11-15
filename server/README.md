@@ -23,10 +23,8 @@ http://localhost:8080/graphql
 Create a friend
 ```
 mutation {
-  mutation {
-    createFriend(input: {firstName: "John", lastName: "Smith"}) {
-      id
-    }
+  createFriend(input: { firstName: "John", lastName: "Smith" }) {
+    id
   }
 }
 ```
