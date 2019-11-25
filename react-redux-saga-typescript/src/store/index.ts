@@ -1,12 +1,14 @@
-import { createStore, applyMiddleware, Store } from 'redux';
+import { createStore, applyMiddleware, Store, compose } from 'redux';
 import { composeWithDevTools } from "redux-devtools-extension";
 import createSagaMiddleware from 'redux-saga';
 import { logger } from '../middleware';
 import rootReducer, { RootState } from '../reducers';
+import client from '../utils/graphql/apolloClient';
 
 export function configureStore(initialState?: RootState) {
   let sagaMiddleware = createSagaMiddleware();
-  let middleware = applyMiddleware(logger, sagaMiddleware);
+  const apolloClientMiddleware = client.middleware();
+  let middleware = applyMiddleware(logger, sagaMiddleware, apolloClientMiddleware);
 
   if (process.env.NODE_ENV === 'development') {
     middleware = composeWithDevTools(middleware);
