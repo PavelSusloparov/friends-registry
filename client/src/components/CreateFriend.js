@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
-import {createFriendMutation} from "./graphql/CreateFriendMutation";
-import {getFriendsQuery} from "./graphql/GetFriendsQuery";
+import {createFriendMutation} from "../graphql/CreateFriendMutation";
+import {getFriendsQuery} from "../graphql/GetFriendsQuery";
 
 class CreateFriend extends Component {
     state = {
@@ -9,7 +9,7 @@ class CreateFriend extends Component {
         lastName: ''
     };
 
-    handleSave = ({ mutate }) => {
+    handleSave = ({ mutate, match }) => {
         const {firstName, lastName } = this.state;
         this.props.mutate({
           variables: {firstName, lastName},

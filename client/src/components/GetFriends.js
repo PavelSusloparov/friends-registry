@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "react-apollo";
-import {getFriendsQuery} from "./graphql/GetFriendsQuery";
+import {getFriendsQuery} from "../graphql/GetFriendsQuery";
 
 const GetFriends = ({ data: { loading, error, getFriends }}) => {
   console.log(`
@@ -16,11 +16,14 @@ const GetFriends = ({ data: { loading, error, getFriends }}) => {
   }
 
   return (
-    <ul>
-      { getFriends.map( item =>
-        (<li key={item.id}>{item.firstName} {item.lastName}</li>)
-      )}
-    </ul>
+    <div>
+      <h5>Friends list</h5>
+      <ul>
+        { getFriends.map( item =>
+          (<li key={item.id}>{item.firstName} {item.lastName}</li>)
+        )}
+      </ul>
+    </div>
   );
 };
 

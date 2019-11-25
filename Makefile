@@ -15,7 +15,7 @@ stopMongo:
 startServer: server.pid
 
 server.pid:
-	{ cd server && yarn start > server.log 2> server.err & echo $$! > $@; }
+	{ cd server && npm start > server.log 2> server.err & echo $$! > $@; }
 
 .PHONY: stopServer
 stopServer: server.pid
@@ -29,28 +29,28 @@ serverLogs:
 	tail -F server/server.log server/server.err
 
 .PHONY: startServer
-startWeb: web.pid
+startClient: client.pid
 
-web.pid:
-	{ cd web && yarn start > web.log 2> web.err & echo $$! > $@; }
+client.pid:
+	{ cd client && npm start > client.log 2> client.err & echo $$! > $@; }
 
-.PHONY: stopWeb
-stopWeb: web.pid
+.PHONY: stopClient
+stopWeb: client.pid
 	-kill `cat $<`
-	-rm web/web.log
-	-rm web/web.err
+	-rm client/client.log
+	-rm client/client.err
 	-rm $<
 
-.PHONY: webLogs
-webLogs:
-	tail -F web/web.log web/web.err
+.PHONY: clientLogs
+clientLogs:
+	tail -F client/client.log client/client.err
 
 .PHONY: logs
 logs:
-	tail -F server/server.log server/server.err web/web.log web/web.err
+	tail -F server/server.log server/server.err client/client.log client/client.err
 
 .PHONY: startup
-startup: startMongo startServer startWeb
+startup: startMongo startServer startClient
 
 .PHONY: shutdown
-shutdown: stopMongo stopServer stopWeb
+shutdown: stopMongo stopServer stopClient
