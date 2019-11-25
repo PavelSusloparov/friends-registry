@@ -1,7 +1,7 @@
-# React-redux-saga-graphql-mongo
+# React-apollo-graphql-mongo
 
 * Server [Readme](server/README.md)
-* Web [Readme](client/README.md)
+* Client [Readme](client/README.md)
 
 ## Run applications
 
