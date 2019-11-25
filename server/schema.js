@@ -1,54 +1,71 @@
-export const typeDefs = `
-    type Friend {
-        id: ID!
-        firstName: String!
-        lastName: String!
-        gender: Gender
-        age: Int
-        language: String
-        email: String
-        contacts: [Contact]
-    }
+import { makeExecutableSchema } from 'graphql-tools';
+import { resolvers } from './resolvers';
 
-    type Contact {
-        firstName: String
-        lastName: String
-    }
+const typeDefs = `
+  type Contact {
+    id: ID!
+    firstName: String
+    lastName: String
+    notes: [Note]!
+  }
 
-    enum Gender {
-        MALE
-        FEMALE
-        OTHER
-    }
+  input NoteInput {
+    contactId: ID!
+    details: String
+  }
 
-    type Query {
-        getFriends: [Friend]
-        getOneFriend(id: ID!): Friend
-    }
+  type Note {
+    id: ID!
+    details: String
+  }
 
-    input FriendInput {
-        id: ID
-        firstName: String!
-        lastName: String!
-        gender: Gender
-        age: Int
-        language: String
-        email: String
-        contacts: [ContactInput]
-    }
-
-    input ContactInput {
-        firstName: String
-        lastName: String 
-    }
-
-    type Mutation {
-        createFriend(input: FriendInput): Friend
-        updateFriend(input: FriendInput): Friend
-        deleteFriend(id: ID!): String
-    }
+  input FriendInput {
+    id: ID
+    firstName: String!
+    lastName: String!
+    gender: Gender
+    age: Int
+    language: String
+    email: String
+  }
+  
+  type Friend {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    gender: Gender
+    age: Int
+    language: String
+    email: String
+  }
     
-    type Subscription {
-        friendUpdated(id: ID!): Friend
-    }
+  enum Gender {
+    MALE
+    FEMALE
+    OTHER
+  }
+   
+  type Query {
+    contacts: [Contact]
+    contact(id: ID!): Contact
+    getFriends: [Friend]
+    getOneFriend(id: ID!): Friend
+  }
+
+  type Mutation {
+    addContact(id: String!, firstName: String!, lastName: String!): Contact
+    addNote(note: NoteInput!): Note
+    createFriend(input: FriendInput): Friend
+    updateFriend(input: FriendInput): Friend
+    deleteFriend(id: ID!): String
+  }
+
+  type Subscription {
+    noteAdded(contactId: ID!): Note
+    friendUpdated(id: ID!): Friend
+  }
 `;
+
+const schema = makeExecutableSchema({ typeDefs, resolvers });
+
+export { schema };
