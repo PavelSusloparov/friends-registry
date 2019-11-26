@@ -112,6 +112,7 @@ export const resolvers = {
         Friends.findOneAndUpdate({_id: input.id}, input, {new: true}, (err, friend) => {
           if (err) reject(err);
           else {
+            console.log("Send FRIEND_UPDATED event");
             pubsub.publish(FRIEND_UPDATED, {friendUpdated: friend});
             resolve(friend);
           }

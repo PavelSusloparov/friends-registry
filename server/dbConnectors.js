@@ -2,7 +2,11 @@ import mongoose from 'mongoose';
 
 // Mongo connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://sa:sa@0.0.0.0:27018/friends?authSource=admin', {useNewUrlParser: true});
+mongoose.connect('mongodb://sa:sa@0.0.0.0:27018/friends?authSource=admin',
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    });
 
 const friendSchema = new mongoose.Schema({
     firstName: {
