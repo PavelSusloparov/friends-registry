@@ -34,7 +34,7 @@ class GetFriends extends Component {
     }
 
     render() {
-        const {data: {loading, error, getFriends} } = this.props;
+        const {data: {loading, error, getFriends}} = this.props;
 
         console.log(`
             loading: ${loading}
@@ -50,7 +50,7 @@ class GetFriends extends Component {
 
         return (
             <div>
-                <h5>Friends list</h5>
+                <h5>Your friends</h5>
                 <ul>
                     {getFriends.map(item =>
                         (<li key={item.id}>{item.firstName} {item.lastName}</li>)
@@ -60,31 +60,5 @@ class GetFriends extends Component {
         );
     }
 }
-
-//
-// const GetFriends = ({ data: { loading, error, getFriends }}) => {
-//   console.log(`
-//     loading: ${loading}
-//     error: ${error}
-//     getFriends: ${getFriends}
-//   `);
-//   if (loading) {
-//     return <p>Loading...</p>
-//   }
-//   if (error) {
-//     return <p>{error.message}</p>
-//   }
-//
-//   return (
-//     <div>
-//       <h5>Friends list</h5>
-//       <ul>
-//         { getFriends.map( item =>
-//           (<li key={item.id}>{item.firstName} {item.lastName}</li>)
-//         )}
-//       </ul>
-//     </div>
-//   );
-// };
 
 export default graphql(getFriendsQuery)(GetFriends);
