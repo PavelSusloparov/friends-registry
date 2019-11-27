@@ -6,8 +6,8 @@ This is a sample project to showcase the following capabilities:
 * ApolloGraphQL subscription
 
 ## Documentation
-* Server [Readme](server/README.md)
-* Client [Readme](client/README.md)
+* [Server Readme](server/README.md)
+* [Client Readme](client/README.md)
 * [Subscription showcase](SUBSCRIPTION_SHOWCASE.md)
 
 ## Run applications
