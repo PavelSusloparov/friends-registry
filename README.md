@@ -1,9 +1,9 @@
 # Friends-registry
 
 This is a sample project to showcase the following capabilities:
-* JavaScript/React/ApolloGraphQL/Mongo stack
+* JavaScript/React/Apollo GraphQL/Mongo stack
 * Optimistic components rendering
-* ApolloGraphQL subscription
+* Apollo GraphQL subscription
 
 ## Documentation
 * [Server Readme](server/README.md)
