@@ -19,7 +19,7 @@ query {
 ```graphql
 mutation {
   updateFriend(input: {
-    id:"YOUR_ID"
+    id:"selected_id_from_previous_call"
     firstName: "John"
     lastName: "Smith"
   }) {
@@ -29,7 +29,7 @@ mutation {
   }
 }
 ```
-* See the updated friends list in the web
+* See the updated friends list on UI
 ```bash
 http://localhost:3000/
 ```

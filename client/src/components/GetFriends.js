@@ -26,9 +26,8 @@ class GetFriends extends Component {
                             getFriends: [...prev.getFriends, newFriend]
                         })
                     });
-                } else {
-                    return prev;
                 }
+                return prev;
             }
         })
     }
@@ -52,9 +51,12 @@ class GetFriends extends Component {
             <div>
                 <h5>Your friends</h5>
                 <ul>
-                    {getFriends.map(item =>
-                        (<li key={item.id}>{item.firstName} {item.lastName}</li>)
-                    )}
+                    {
+                        getFriends.map(
+                            item =>
+                                <li key={item.id}>{item.firstName} {item.lastName}</li>
+                        )
+                    }
                 </ul>
             </div>
         );

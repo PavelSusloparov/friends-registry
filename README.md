@@ -10,6 +10,44 @@ This is a sample project to showcase the following capabilities:
 * [Client Readme](client/README.md)
 * [Subscription showcase](SUBSCRIPTION_SHOWCASE.md)
 
+## Pre-requirements for local environment setup (MacOSX)
+
+- Install brew
+Follow instruction [https://brew.sh/](https://brew.sh/)
+
+- Install nvm
+
+```bash
+brew install nvm
+
+*Hint:*
+if you use zsh and get a message `zsh: command not found: nvm` then add the snippet below to your .zshrc file
+```
+
+```bash
+# For brew, at least
+export PATH=/usr/local/opt:/usr/local/bin:$PATH
+
+# NVM Stuff
+export NVM_DIR="$HOME/.nvm"
+. "$(brew --prefix nvm)/nvm.sh"
+``` 
+
+- Install node
+```bash
+nvm install 12
+nvm alias default 12
+nvm use 12
+```
+
+- Install docker
+
+    Follow instruction [https://docs.docker.com/docker-for-mac/install/](https://docs.docker.com/docker-for-mac/install/)
+
+- Install docker-compose
+
+    Follow instruction [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
+
 ## Run applications
 
 Start mongo database
@@ -46,7 +84,9 @@ If the pid file was deleted without stopping the process, use lsof to find proce
 ```bash
 lsof -i tcp:3000
 ```
+
 and
+
 ```bash
 lsof -i tcp:4000
 ```

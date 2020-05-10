@@ -9,7 +9,7 @@ class CreateFriend extends Component {
         lastName: ''
     };
 
-    handleSave = (event) => {
+    handleSave = () => {
         const newId = Math.round(Math.random() * -1000000);
         const {firstName, lastName} = this.state;
         this.props.mutate({
