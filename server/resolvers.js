@@ -1,26 +1,26 @@
-import {PubSub} from 'graphql-subscriptions';
-import {Friends} from "../server/dbConnectors";
-import {reject} from "lodash";
+import { PubSub } from 'graphql-subscriptions';
+import { Friends } from '../server/dbConnectors';
+import { reject } from 'lodash';
 
 const pubsub = new PubSub();
 const FRIEND_UPDATED = 'FRIEND_UPDATED';
 
 export const resolvers = {
     Query: {
-        getOneFriend: (root, {id}) => {
+        getOneFriend: (root, { id }) => {
             return new Promise((resolve, object) => {
                 Friends.findById(id, (err, friend) => {
                     if (err) reject(err);
-                    else resolve(friend)
+                    else resolve(friend);
                 });
             });
         },
         getFriends: (root) => {
             return Friends.find();
-        }
+        },
     },
     Mutation: {
-        createFriend: (root, {input}) => {
+        createFriend: (root, { input }) => {
             const newFriend = new Friends({
                 firstName: input.firstName,
                 lastName: input.lastName,
@@ -28,7 +28,7 @@ export const resolvers = {
                 age: input.age,
                 language: input.language,
                 email: input.email,
-                contacts: input.contacts
+                contacts: input.contacts,
             });
 
             newFriend.id = newFriend._id;
@@ -37,29 +37,29 @@ export const resolvers = {
                 newFriend.save((err) => {
                     if (err) reject(err);
                     else resolve(newFriend);
-                })
+                });
             });
         },
-        updateFriend: (root, {input}) => {
+        updateFriend: (root, { input }) => {
             return new Promise((resolve, object) => {
-                Friends.findOneAndUpdate({_id: input.id}, input, {new: true}, (err, friend) => {
+                Friends.findOneAndUpdate({ _id: input.id }, input, { new: true }, (err, friend) => {
                     if (err) reject(err);
                     else {
-                        console.log("Send FRIEND_UPDATED event");
-                        pubsub.publish(FRIEND_UPDATED, {friendUpdated: friend});
+                        console.log('Send FRIEND_UPDATED event');
+                        pubsub.publish(FRIEND_UPDATED, { friendUpdated: friend });
                         resolve(friend);
                     }
-                })
-            })
+                });
+            });
         },
-        deleteFriend: (root, {id}) => {
+        deleteFriend: (root, { id }) => {
             return new Promise((resolve, object) => {
-                Friends.remove({_id: id}, (err) => {
+                Friends.remove({ _id: id }, (err) => {
                     if (err) reject(err);
-                    else resolve('Successfully deleted friend')
-                })
-            })
-        }
+                    else resolve('Successfully deleted friend');
+                });
+            });
+        },
     },
     Subscription: {
         friendUpdated: {

@@ -2,34 +2,33 @@ import mongoose from 'mongoose';
 
 // Mongo connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://sa:sa@0.0.0.0:27018/friends?authSource=admin',
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    });
+mongoose.connect('mongodb://sa:sa@0.0.0.0:27018/friends?authSource=admin', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
 
 const friendSchema = new mongoose.Schema({
     firstName: {
-        type: String
+        type: String,
     },
     lastName: {
-        type: String
+        type: String,
     },
     gender: {
-        type: String
+        type: String,
     },
     age: {
-        type: Number
+        type: Number,
     },
     language: {
-        type: String
+        type: String,
     },
     email: {
-        type: String
+        type: String,
     },
     contacts: {
-        type: Array
-    }
+        type: Array,
+    },
 });
 
 export const Friends = mongoose.model('friends', friendSchema);

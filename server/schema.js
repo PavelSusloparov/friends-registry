@@ -1,5 +1,5 @@
-import {makeExecutableSchema} from 'graphql-tools';
-import {resolvers} from './resolvers';
+import { makeExecutableSchema } from 'graphql-tools';
+import { resolvers } from './resolvers';
 
 const typeDefs = `
   input FriendInput {
@@ -44,6 +44,6 @@ const typeDefs = `
   }
 `;
 
-const schema = makeExecutableSchema({typeDefs, resolvers});
+const schema = makeExecutableSchema({ typeDefs, resolvers });
 
-export {schema};
+export { schema };

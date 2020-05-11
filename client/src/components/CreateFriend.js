@@ -4,10 +4,7 @@ import {createFriendMutation} from "../graphql/CreateFriendMutation";
 import {getFriendsQuery} from "../graphql/GetFriendsQuery";
 
 class CreateFriend extends Component {
-    state = {
-        firstName: '',
-        lastName: ''
-    };
+    state = { firstName: '', lastName: '' };
 
     handleSave = () => {
         const newId = Math.round(Math.random() * -1000000);
