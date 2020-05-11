@@ -1,7 +1,8 @@
 # Eslint
 
 Project uses 'Eslint' as a linter.
-'Eslint' is using 'Esprima' as a parser and 'Prettier' as a linter plugin.
+'Eslint' is using 'Esprima' as a parser for server component and 'babel-eslint' as a parser for client component.
+'Prettier' is a linter plugin.
 
 To run the linter against `client` component
 ```bash

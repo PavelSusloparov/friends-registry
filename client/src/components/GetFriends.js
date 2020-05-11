@@ -4,6 +4,7 @@ import { getFriendsQuery } from '../graphql/GetFriendsQuery';
 import { friendUpdated } from '../graphql/FriendUpdated';
 
 class GetFriends extends Component {
+
     componentDidMount() {
         console.log(this.props);
         this.props.data.subscribeToMore({

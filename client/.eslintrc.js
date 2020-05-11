@@ -1,5 +1,6 @@
 // Prefer using a JavaScript over .eslintrc file - better support for comments
 module.exports = {
+    parser: "babel-eslint",
     extends: [
         // 'plugin:@typescript-eslint/recommended', // uses typescript-specific linting rules
         'plugin:react/recommended', // uses react-specific linting rules
