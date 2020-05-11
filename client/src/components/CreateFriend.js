@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { createFriendMutation } from '../graphql/CreateFriendMutation';
 import { getFriendsQuery } from '../graphql/GetFriendsQuery';
+import PropTypes from 'prop-types';
 
 class CreateFriend extends Component {
+    propTypes = { mutate: PropTypes.func.isRequired };
 
     state = { firstName: '', lastName: '' };
 

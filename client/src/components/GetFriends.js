@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { getFriendsQuery } from '../graphql/GetFriendsQuery';
 import { friendUpdated } from '../graphql/FriendUpdated';
+import PropTypes from 'prop-types';
 
 class GetFriends extends Component {
+    propTypes = { data: PropTypes.object.isRequired };
 
     componentDidMount() {
         console.log(this.props);
