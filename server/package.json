@@ -27,6 +27,7 @@
     "graphql-subscriptions": "^1.1.0",
     "graphql-tools": "^4.0.6",
     "http": "0.0.0",
-    "subscriptions-transport-ws": "^0.9.16"
+    "subscriptions-transport-ws": "^0.9.16",
+    "braces": "^3.0.2"
   }
 }
