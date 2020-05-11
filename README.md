@@ -34,10 +34,17 @@ export NVM_DIR="$HOME/.nvm"
 ``` 
 
 - Install node
+
 ```bash
 nvm install 12
 nvm alias default 12
 nvm use 12
+```
+
+- Install npx
+
+```bash
+npm install -g npx
 ```
 
 - Install docker
@@ -51,22 +58,26 @@ nvm use 12
 ## Run applications
 
 Start mongo database
+
 ```bash
 docker-compose up -d
 ```
 
 Start server in one console tab
+
 ```bash
 cd server
 npm install
 npm start
 ```
 Access GraphQL playground
+
 ```bash
 http://localhost:4000/graphql
 ```
 
 Start client in another console tab
+
 ```bash
 cd client
 npm install
@@ -74,19 +85,7 @@ npm start
 ```
 
 Access the application
+
 ```bash
 http://localhost:3000/
-```
-
-## Hints
-
-If the pid file was deleted without stopping the process, use lsof to find process pid
-```bash
-lsof -i tcp:3000
-```
-
-and
-
-```bash
-lsof -i tcp:4000
 ```
