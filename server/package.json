@@ -20,7 +20,7 @@
     "prettier": "^2.0.5"
   },
   "dependencies": {
-    "lodash": "4.17.15",
+    "lodash": "4.17.21",
     "mongoose": "5.7.11",
     "apollo-server": "^2.9.12",
     "apollo-server-express": "^2.9.12",
